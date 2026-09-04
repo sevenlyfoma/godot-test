@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://djs8p8arnqk0e"]
+
+[node name="Hello World Label" type="Label" unique_id=2103082945]
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 92.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 200
+text = "Hello World"
