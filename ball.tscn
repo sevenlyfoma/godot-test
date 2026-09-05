@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dkhpiuradfjfa"]
+
+[ext_resource type="Texture2D" uid="uid://ckync6bchceyv" path="res://addons/ballBlue_10.png" id="1_x8fbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2xtj"]
+radius = 69.45
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=567612705]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1302205185]
+shape = SubResource("CircleShape2D_g2xtj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=133327905]
+texture = ExtResource("1_x8fbi")

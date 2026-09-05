@@ -1,9 +1,19 @@
 [gd_scene format=3 uid="uid://djs8p8arnqk0e"]
 
+[ext_resource type="PackedScene" uid="uid://dkhpiuradfjfa" path="res://ball.tscn" id="1_pq8q7"]
+
 [node name="Hello World Label" type="Label" unique_id=2103082945]
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 92.0
-offset_bottom = 27.0
+offset_left = 20.0
+offset_top = 3.0
+offset_right = 1149.0
+offset_bottom = 276.0
 theme_override_font_sizes/font_size = 200
 text = "Hello World"
+
+[node name="RigidBody2D" parent="." unique_id=567612705 instance=ExtResource("1_pq8q7")]
+position = Vector2(832, 343)
+
+[node name="RigidBody2D2" parent="." unique_id=2120738524 instance=ExtResource("1_pq8q7")]
+position = Vector2(907, 552)
+mass = 1000.0
+gravity_scale = 0.0
