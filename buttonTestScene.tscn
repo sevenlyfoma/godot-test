@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b8k7agynyf0vf"]
+
+[ext_resource type="PackedScene" uid="uid://cjwcmdjfvnavq" path="res://square.tscn" id="2_5f30n"]
+[ext_resource type="Script" uid="uid://cnxirc1rehclh" path="res://motion_script.gd" id="2_n46pd"]
+
+[node name="Node2D" type="Node2D" unique_id=187504651]
+
+[node name="RigidBody2D" parent="." unique_id=480620912 instance=ExtResource("2_5f30n")]
+position = Vector2(591, 255)
+script = ExtResource("2_n46pd")
+
+[node name="Toggle motion" type="Button" parent="." unique_id=2021640497]
+offset_right = 281.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 29
+text = "Toggle motion
+"
+
+[connection signal="pressed" from="Toggle motion" to="RigidBody2D" method="_on_toggle_motion_pressed"]

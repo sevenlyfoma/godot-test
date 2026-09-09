@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cjwcmdjfvnavq" path="res://square.tscn" id="1_28aoi"]
 [ext_resource type="PackedScene" uid="uid://dkhpiuradfjfa" path="res://ball.tscn" id="1_pq8q7"]
+[ext_resource type="Script" uid="uid://cnxirc1rehclh" path="res://motion_script.gd" id="2_28aoi"]
 [ext_resource type="Texture2D" uid="uid://c5oty1aqytgbh" path="res://icon.svg" id="2_vvh5c"]
-[ext_resource type="Script" uid="uid://b7emwm0u4w04g" path="res://sprite_2d.gd" id="3_28aoi"]
 
 [node name="Hello World Label" type="Label" unique_id=2103082945]
 offset_left = 20.0
@@ -14,13 +14,17 @@ theme_override_font_sizes/font_size = 200
 text = "Hello World"
 
 [node name="RigidBody2D3" parent="." unique_id=480620912 instance=ExtResource("1_28aoi")]
-position = Vector2(92, 274)
+position = Vector2(141, 517)
+
+[node name="moveSquare" parent="." unique_id=350302967 instance=ExtResource("1_28aoi")]
+position = Vector2(484, 380)
+script = ExtResource("2_28aoi")
 
 [node name="RigidBody2D" parent="." unique_id=567612705 instance=ExtResource("1_pq8q7")]
 position = Vector2(832, 343)
 
 [node name="RigidBody2D2" parent="." unique_id=2120738524 instance=ExtResource("1_pq8q7")]
-position = Vector2(907, 552)
+position = Vector2(845, 540)
 mass = 1000.0
 gravity_scale = 0.0
 
@@ -28,4 +32,3 @@ gravity_scale = 0.0
 position = Vector2(138, 374)
 scale = Vector2(0.8222656, 0.5351568)
 texture = ExtResource("2_vvh5c")
-script = ExtResource("3_28aoi")
