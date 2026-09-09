@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jiowd"]
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=480620912]
-gravity_scale = 0.01
+gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935247929]
 position = Vector2(415, 163)

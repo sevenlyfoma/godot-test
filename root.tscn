@@ -14,7 +14,7 @@ theme_override_font_sizes/font_size = 200
 text = "Hello World"
 
 [node name="RigidBody2D3" parent="." unique_id=480620912 instance=ExtResource("1_28aoi")]
-position = Vector2(293, 366)
+position = Vector2(92, 274)
 
 [node name="RigidBody2D" parent="." unique_id=567612705 instance=ExtResource("1_pq8q7")]
 position = Vector2(832, 343)
