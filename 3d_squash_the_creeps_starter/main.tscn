@@ -19,7 +19,7 @@ material = SubResource("StandardMaterial3D_1bvp3")
 [sub_resource type="Curve3D" id="Curve3D_h2yge"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -13.281929, 0, -14.056114, 0, 0, 0, 0, 0, 0, 13.337749, 0, -13.995925, 0, 0, 0, 0, 0, 0, 13.337749, 0, 15.864707, 0, 0, 0, 0, 0, 0, -13.426961, 0, 15.864707),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -13.273, 0, -14.103, 0, 0, 0, 0, 0, 0, 13.292, 0, -13.952, 0, 0, 0, 0, 0, 0, 13.292, 0, 15.942, 0, 0, 0, 0, 0, 0, -13.273, 0, 16.169),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -30,6 +30,8 @@ mob_scene = ExtResource("2_h2yge")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=670996078]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=4067729]
 shape = SubResource("BoxShape3D_dqxiu")
@@ -45,7 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.965925
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1889386541 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5080919, 0)
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=1187542517]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
@@ -75,14 +76,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.327, 1, 15.938)
 mesh = SubResource("CylinderMesh_utgqc")
 
 [node name="SpawnPath" type="Path3D" parent="." unique_id=80814103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 curve = SubResource("Curve3D_h2yge")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath" unique_id=1953003639]
-transform = Transform3D(-0.0022612035, 0, -0.99999744, 0, 1, 0, 0.99999744, 0, -0.0022612035, -13.281929, 0, -14.056114)
+transform = Transform3D(-0.005684147, 0, -0.9999799, 0, 0.99999696, 0, 0.99998325, 0, -0.005684128, -13.278684, 0, -13.103016)
+h_offset = 1.0
 
 [node name="MobTimer" type="Timer" parent="." unique_id=867350549]
 wait_time = 0.5
 autostart = true
 
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
