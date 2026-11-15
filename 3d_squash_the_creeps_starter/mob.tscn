@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bicorb7we351t" path="res://art/mob.glb" id="2_ubaqv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dqxiu"]
-size = Vector3(0.52008057, 0.21478271, 0.6986084)
+size = Vector3(0.52008057, 0.30612183, 0.6986084)
 
 [node name="Mob" type="CharacterBody3D" unique_id=69471754]
 script = ExtResource("1_nokgg")
@@ -14,11 +14,17 @@ script = ExtResource("1_nokgg")
 [node name="Character" parent="Pivot" unique_id=1968759651 instance=ExtResource("2_ubaqv")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1814328797]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.05154419, 0.33773804, -0.062438965)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.05154419, 0.20072937, -0.062438965)
 shape = SubResource("BoxShape3D_dqxiu")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=331808437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11175227, 0)
 aabb = AABB(-1.1589831, -0.59355605, -1.925696, 2.3179662, 1.6480496, 3.851392)
 
+[node name="DespawnTimer" type="Timer" parent="." unique_id=824779094]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
