@@ -3,11 +3,16 @@
 [ext_resource type="Script" uid="uid://cc8n3086pvl18" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ceuu150fmggvr" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://defdm2qdva75q" path="res://mob.tscn" id="2_h2yge"]
+[ext_resource type="FontFile" uid="uid://cyxhh7ddkn62q" path="res://fonts/Montserrat-Medium.ttf" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://bq4lq2wbf1rkc" path="res://score_label.gd" id="5_lquwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dqxiu"]
 size = Vector3(60, 2, 60)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_dqxiu"]
+material = SubResource("StandardMaterial3D_h2yge")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
@@ -23,6 +28,10 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="Theme" id="Theme_1bvp3"]
+default_font = ExtResource("4_lquwl")
+default_font_size = 22
 
 [node name="Main" type="Node" unique_id=1214397825]
 script = ExtResource("1_0xm2m")
@@ -43,7 +52,7 @@ mesh = SubResource("BoxMesh_dqxiu")
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=693734849]
-transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, -1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9390941, 0.34365967, 0, -0.34365967, 0.9390941, -1, 0, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1889386541 instance=ExtResource("1_ig7tw")]
@@ -86,6 +95,49 @@ h_offset = 1.0
 [node name="MobTimer" type="Timer" parent="." unique_id=867350549]
 wait_time = 0.5
 autostart = true
+
+[node name="UserInterface" type="Control" parent="." unique_id=843982723]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1bvp3")
+
+[node name="ScoreLabel" type="Label" parent="UserInterface" unique_id=1006169557]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 84.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+script = ExtResource("5_lquwl")
+
+[node name="Retry" type="ColorRect" parent="UserInterface" unique_id=1271411085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3882353)
+
+[node name="Label" type="Label" parent="UserInterface/Retry" unique_id=2032693043]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -14.0
+offset_right = 111.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to Retry"
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
